@@ -212,7 +212,7 @@ public class DroneServiceImpl implements DroneService {
         }
 
         if (weight < 0 || weight > drone.getModel().getMaxWeight()) {
-            return createErrorResponse(Message.MODEL_WEIGHT_INVALID);
+            return createErrorResponse(Message.MODEL_WEIGHT_INVALID, new String[]{drone.getModel().name(), drone.getModel().getMaxWeight().toString()});
         }
 
         List<Medicine> medicines = medicineRepository.findByDroneId(drone.getId());
