@@ -30,7 +30,7 @@ public class MessageUtil {
         if (state.equals(State.IDLE) && batteryPercentage >= 25) {
             return messageSource.getMessage(Message.DRONE_AVAILABLE, null, Locale.ENGLISH);
         } else {
-            return messageSource.getMessage(Message.DRONE_NOT_AVAILABLE, new String[]{ state.name() }, Locale.ENGLISH);
+            return messageSource.getMessage(Message.DRONE_NOT_AVAILABLE, new String[]{ state.name(), String.valueOf(batteryPercentage) }, Locale.ENGLISH);
         }
     }
 }
