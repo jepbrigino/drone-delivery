@@ -1,0 +1,18 @@
+CREATE TABLE DRONES (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    serial_number VARCHAR(100) NOT NULL,
+    model VARCHAR(25) NOT NULL,
+    load_weight DECIMAL(6, 2),
+    battery_percentage INT NOT NULL,
+    state VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE MEDICINES (
+   id BIGINT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR NOT NULL,
+   weight DECIMAL(6, 2),
+   code VARCHAR NOT NULL,
+   image BLOB,
+   drone_id BIGINT NOT NULL,
+   CONSTRAINT fk_drone FOREIGN KEY (drone_id) REFERENCES DRONES(id)
+)
